@@ -1,0 +1,69 @@
+openapi: 3.0.2
+info:
+    title: API First Springboot project
+    version: 1.0.0
+    description: |-
+        A sample API that uses a petstore as an example to demonstrate features
+        in the OpenAPI 3.0 specification
+    termsOfService: 'http://swagger.io/terms/'
+    contact:
+        name: Swagger API Team
+        url: 'http://swagger.io'
+        email: apiteam@swagger.io
+    license:
+        name: Apache 2.0
+        url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+    -
+        url: /api
+paths:
+    /users:
+        get:
+            tags:
+                - Users
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/User'
+                    description: Get list of users
+            operationId: getUsers
+            summary: Get list of users
+    '/users/{id}':
+        get:
+            tags:
+                - Users
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/User'
+                    description: Get list of users
+            operationId: getUser
+            summary: Get user by id
+        parameters:
+            -
+                name: id
+                schema:
+                    type: integer
+                in: path
+                required: true
+components:
+    schemas:
+        User:
+            description: ''
+            type: object
+            properties:
+                firstName:
+                    description: ''
+                    type: string
+                lastName:
+                    description: ''
+                    type: string
+                id:
+                    description: ''
+                    type: integer

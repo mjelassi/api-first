@@ -1,0 +1,6 @@
+logging:
+  level:
+    ROOT: INFO
+    com.mj.perso.perso: DEBUG
+    org.springframework.security: WARN
+
